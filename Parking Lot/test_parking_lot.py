@@ -1,29 +1,29 @@
 import unittest
-from parking_lot import Parking
+from parking_lot import parking
 
 
 class TestParkingLot(unittest.TestCase):
 
     def test_create_parking_lot(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         self.assertEqual(6, result)
 
     def test_park(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         result = parkingLot.park("KA-01-HH-1234", "White")
         self.assertNotEqual(-1, result)
 
     def test_leave(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         result = parkingLot.park("KA-01-HH-1234", "White")
         result = parkingLot.leave(1)
         self.assertEqual(True, result)
 
     def test_getRegNoFromColor(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         result = parkingLot.park("KA-01-HH-1234", "White")
         result = parkingLot.park("KA-01-HH-9999", "White")
@@ -32,7 +32,7 @@ class TestParkingLot(unittest.TestCase):
         self.assertIn("KA-01-HH-9999", regnos)
 
     def test_getSlotNoFromRegNo(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         result = parkingLot.park("KA-01-HH-1234", "White")
         result = parkingLot.park("KA-01-HH-9999", "White")
@@ -40,7 +40,7 @@ class TestParkingLot(unittest.TestCase):
         self.assertEqual(2, slotno)
 
     def test_getSlotNoFromColor(self):
-        parkingLot = Parking()
+        parkingLot = parking()
         result = parkingLot.Create_New_Slot(6)
         result = parkingLot.park("KA-01-HH-1234", "White")
         result = parkingLot.park("KA-01-HH-9999", "White")
